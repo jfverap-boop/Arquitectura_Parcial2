@@ -1,0 +1,349 @@
+
+===== PRUEBA 1 - CICLO FETCH-DECODE-EXECUTE =====
+
+Ingresa instrucciones (escribe FIN para terminar la captura).
+Formato: LOAD dir | ADD dir | SUB dir | MUL dir | INC | STORE dir
+
+--- ETAPA FETCH ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 0.
+
+--- ETAPA DECODE ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=LOAD; operando=dirección 0.
+
+--- ETAPA EXECUTE ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: ACC <- RAM[0] = 20
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 20            | 0          | ACC <- RAM[0] = 20                      
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 1
+ACC: 20
+Instrucción actual: —
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 1
+ACC: 20
+Instrucción actual: SUB 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 1.
+
+--- ETAPA DECODE ---
+PC: 1
+ACC: 20
+Instrucción actual: SUB 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=SUB; operando=dirección 1.
+
+--- ETAPA EXECUTE ---
+PC: 1
+ACC: 20
+Instrucción actual: SUB 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: 13 = 20 - 7; módulo 256 -> 13
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 20            | 0          | ACC <- RAM[0] = 20                      
+1    | SUB 1            | 20           | 13            | 1          | 13 = 20 - 7; módulo 256 -> 13           
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 2
+ACC: 13
+Instrucción actual: —
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 2
+ACC: 13
+Instrucción actual: MUL 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 2.
+
+--- ETAPA DECODE ---
+PC: 2
+ACC: 13
+Instrucción actual: MUL 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=MUL; operando=dirección 1.
+
+--- ETAPA EXECUTE ---
+PC: 2
+ACC: 13
+Instrucción actual: MUL 1
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: 91 = 13 * 7; módulo 256 -> 91
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 20            | 0          | ACC <- RAM[0] = 20                      
+1    | SUB 1            | 20           | 13            | 1          | 13 = 20 - 7; módulo 256 -> 13           
+2    | MUL 1            | 13           | 91            | 1          | 91 = 13 * 7; módulo 256 -> 91           
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 3
+ACC: 91
+Instrucción actual: —
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 3
+ACC: 91
+Instrucción actual: INC
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 3.
+
+--- ETAPA DECODE ---
+PC: 3
+ACC: 91
+Instrucción actual: INC
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=INC; no requiere dirección de RAM.
+
+--- ETAPA EXECUTE ---
+PC: 3
+ACC: 91
+Instrucción actual: INC
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: 91 + 1 = 92; módulo 256 -> 92
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 20            | 0          | ACC <- RAM[0] = 20                      
+1    | SUB 1            | 20           | 13            | 1          | 13 = 20 - 7; módulo 256 -> 13           
+2    | MUL 1            | 13           | 91            | 1          | 91 = 13 * 7; módulo 256 -> 91           
+3    | INC              | 91           | 92            | —          | 91 + 1 = 92; módulo 256 -> 92           
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 4
+ACC: 92
+Instrucción actual: —
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 4
+ACC: 92
+Instrucción actual: STORE 2
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 4.
+
+--- ETAPA DECODE ---
+PC: 4
+ACC: 92
+Instrucción actual: STORE 2
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=STORE; operando=dirección 2.
+
+--- ETAPA EXECUTE ---
+PC: 4
+ACC: 92
+Instrucción actual: STORE 2
+RAM: [20, 7, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: RAM[2] <- 92
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 20            | 0          | ACC <- RAM[0] = 20                      
+1    | SUB 1            | 20           | 13            | 1          | 13 = 20 - 7; módulo 256 -> 13           
+2    | MUL 1            | 13           | 91            | 1          | 91 = 13 * 7; módulo 256 -> 91           
+3    | INC              | 91           | 92            | —          | 91 + 1 = 92; módulo 256 -> 92           
+4    | STORE 2          | 92           | 92            | 2          | RAM[2] <- 92                            
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 5
+ACC: 92
+Instrucción actual: —
+RAM: [20, 7, 92, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+Programa finalizado.
+ACC final: 92
+PC final: 5
+
+========================= MEMORIA RAM =========================
+Dirección | Decimal | Binario
+---------------------------------
+        0 |      20 | 00010100
+        1 |       7 | 00000111
+        2 |      92 | 01011100
+        3 |   Vacía | --------
+        4 |   Vacía | --------
+        5 |   Vacía | --------
+        6 |   Vacía | --------
+        7 |   Vacía | --------
+        8 |   Vacía | --------
+        9 |   Vacía | --------
+       10 |   Vacía | --------
+       11 |   Vacía | --------
+       12 |   Vacía | --------
+       13 |   Vacía | --------
+       14 |   Vacía | --------
+       15 |   Vacía | --------
+---------------------------------
+Capacidad: 16 posiciones | Ancho: 8 bits | Máximo: 255
+Capacidad teórica: 128 bits = 16 bytes
+Posiciones ocupadas: 3/16
+
+RESULTADO: APROBADA. ACC=92, RAM[2]=92, PC=5.
+
+===== PRUEBA 2 - DESBORDAMIENTO DE 8 BITS =====
+
+Ingresa instrucciones (escribe FIN para terminar la captura).
+Formato: LOAD dir | ADD dir | SUB dir | MUL dir | INC | STORE dir
+
+--- ETAPA FETCH ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 0.
+
+--- ETAPA DECODE ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=LOAD; operando=dirección 0.
+
+--- ETAPA EXECUTE ---
+PC: 0
+ACC: None
+Instrucción actual: LOAD 0
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: ACC <- RAM[0] = 200
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 200           | 0          | ACC <- RAM[0] = 200                     
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 1
+ACC: 200
+Instrucción actual: —
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 1
+ACC: 200
+Instrucción actual: ADD 1
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 1.
+
+--- ETAPA DECODE ---
+PC: 1
+ACC: 200
+Instrucción actual: ADD 1
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=ADD; operando=dirección 1.
+
+--- ETAPA EXECUTE ---
+PC: 1
+ACC: 200
+Instrucción actual: ADD 1
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: 300 = 200 + 100; módulo 256 -> 44
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 200           | 0          | ACC <- RAM[0] = 200                     
+1    | ADD 1            | 200          | 44            | 1          | 300 = 200 + 100; módulo 256 -> 44       
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 2
+ACC: 44
+Instrucción actual: —
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- ETAPA FETCH ---
+PC: 2
+ACC: 44
+Instrucción actual: INC
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+FETCH: se obtiene la instrucción ubicada en la posición 2.
+
+--- ETAPA DECODE ---
+PC: 2
+ACC: 44
+Instrucción actual: INC
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+DECODE: operación=INC; no requiere dirección de RAM.
+
+--- ETAPA EXECUTE ---
+PC: 2
+ACC: 44
+Instrucción actual: INC
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+EXECUTE: 44 + 1 = 45; módulo 256 -> 45
+
+HISTORIAL DE EJECUCIÓN (PC corresponde a la instrucción ejecutada)
+PC   | Instrucción      | ACC antes    | ACC después   | Dir. RAM   | Resultado                               
+-----+------------------+--------------+---------------+------------+-----------------------------------------
+0    | LOAD 0           | None         | 200           | 0          | ACC <- RAM[0] = 200                     
+1    | ADD 1            | 200          | 44            | 1          | 300 = 200 + 100; módulo 256 -> 44       
+2    | INC              | 44           | 45            | —          | 44 + 1 = 45; módulo 256 -> 45           
+
+--- ETAPA FIN DE INSTRUCCIÓN ---
+PC: 3
+ACC: 45
+Instrucción actual: —
+RAM: [200, 100, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+Programa finalizado.
+ACC final: 45
+PC final: 3
+
+========================= MEMORIA RAM =========================
+Dirección | Decimal | Binario
+---------------------------------
+        0 |     200 | 11001000
+        1 |     100 | 01100100
+        2 |   Vacía | --------
+        3 |   Vacía | --------
+        4 |   Vacía | --------
+        5 |   Vacía | --------
+        6 |   Vacía | --------
+        7 |   Vacía | --------
+        8 |   Vacía | --------
+        9 |   Vacía | --------
+       10 |   Vacía | --------
+       11 |   Vacía | --------
+       12 |   Vacía | --------
+       13 |   Vacía | --------
+       14 |   Vacía | --------
+       15 |   Vacía | --------
+---------------------------------
+Capacidad: 16 posiciones | Ancho: 8 bits | Máximo: 255
+Capacidad teórica: 128 bits = 16 bytes
+Posiciones ocupadas: 2/16
+
+RESULTADO: APROBADA. 200+100=300; 300 módulo 256=44; INC=45.
+
+===== PRUEBA 3 - CONFIGURACIÓN Y VALIDACIONES =====
+Configuración: 32 posiciones x 8 bits
+Máximo por posición: 255
+Capacidad: 256 bits = 32 bytes
+Dirección 32 rechazada; operación XYZ rechazada.
+Dato 255 en binario: 11111111
+RESULTADO: APROBADA.
+
+TODAS LAS PRUEBAS DEL EXAMEN 2 FINALIZARON CORRECTAMENTE.
